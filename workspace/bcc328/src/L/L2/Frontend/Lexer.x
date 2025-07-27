@@ -1,6 +1,6 @@
 {
 {-# OPTIONS_GHC -Wno-name-shadowing #-}
-module L.L1.Frontend.Lexer (Token (..), Lexeme (..), lexer) where 
+module L.L2.Frontend.Lexer (Token (..), Lexeme (..), lexer) where 
 }
 
 %wrapper "posn"
@@ -23,6 +23,7 @@ tokens :-
       ")"            {simpleToken TRParen}
       "+"            {simpleToken TPlus}
       "*"            {simpleToken TTimes}
+      "/"            {simpleToken TDiv}
       ":="           {simpleToken TAssign}
       ";"            {simpleToken TSemicolon}  
       ","            {simpleToken TComma}   
@@ -30,6 +31,11 @@ tokens :-
 
       "read"         {simpleToken TRead}
       "print"        {simpleToken TPrint}
+
+      "def"          {simpleToken TDef}
+      "in"           {simpleToken TIn}
+      "end"          {simpleToken TEnd}
+
       @id            {mkId}      
 
 {
@@ -46,6 +52,7 @@ data Lexeme
   | TPlus       -- +
   | TMinus      -- -
   | TTimes      -- *
+  | TDiv        -- /
   | TLParen     -- (
   | TRParen     -- )
   | TNumber Int
@@ -53,6 +60,9 @@ data Lexeme
   | TId String  -- Identificador
   | TSemicolon  -- ;
   | TComma      -- ,
+  | TDef        -- def
+  | TIn         -- in
+  | TEnd        -- end
   | TEOF
   deriving (Eq, Ord, Show)
 

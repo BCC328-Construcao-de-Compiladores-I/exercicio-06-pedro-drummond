@@ -59,5 +59,3 @@ lparen = sat (\ t -> lexeme t == TLParen)
 
 rparen :: Parser Token 
 rparen = sat (\ t -> lexeme t == TRParen)
-
-

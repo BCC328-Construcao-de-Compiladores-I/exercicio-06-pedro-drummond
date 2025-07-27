@@ -84,4 +84,3 @@ s2b e1@(VStr s)
   | otherwise = Left $ unwords ["Type error on : s2b(", pretty e1, ")"]
 s2b e1 = Left $ unwords ["Type error on : s2b(", pretty e1, ")"]
 
-

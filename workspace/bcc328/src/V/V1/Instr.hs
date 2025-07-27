@@ -31,7 +31,7 @@ instance Pretty Instr where
                       , semi
                       ]
   ppr Add = text "add;"
-  ppr Sub = text "minus;"
+  ppr Sub = text "sub;"
   ppr Mul = text "mul;"
   ppr Div = text "div;"
   ppr Input = text "input;"
