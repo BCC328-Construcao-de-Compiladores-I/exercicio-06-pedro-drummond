@@ -27,7 +27,7 @@ cCodegen ast = unlines
 
 -- Helper para converter um Var para um nome de variável C válido.
 varName :: Var -> String
-varName (Var s) = "v_" ++ s
+varName (Var s) = "" ++ s
 
 -- Gera código para L2.
 codeGenL2 :: L2 -> CgM ()
@@ -57,9 +57,9 @@ codeGenS (LRead prompt var) = do
 
 codeGenS (Def var expr stmts) = do
   cExpr <- codeGenE expr
-  tell "    {\n" -- 
+  tell "    {\n"
 
-  tell $ "        const int " ++ varName var ++ " = " ++ cExpr ++ ";\n"
+  tell $ "    const int " ++ varName var ++ " = " ++ cExpr ++ ";\n"
   mapM_ codeGenS stmts
   tell "    }\n" 
 

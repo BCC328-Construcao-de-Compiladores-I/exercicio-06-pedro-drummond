@@ -3,16 +3,16 @@
 
 int main() {
         {
-        const int v_x = 1;
-    int v_a = 0;
-    v_a = (v_x + 1);
-    printf("%d\n", v_a);
+    const int x = 1;
+    int a = 0;
+    a = (x + 1);
+    printf("%d\n", a);
     {
-        const int v_x = 5;
-    v_a = (v_x - 1);
-    printf("%d\n", v_a);
+    const int x = 5;
+    a = (x - 1);
+    printf("%d\n", a);
     }
-    printf("%d\n", v_x);
+    printf("%d\n", x);
     }
 
     return 0;
